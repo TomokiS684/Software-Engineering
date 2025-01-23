@@ -1,3 +1,3 @@
-# Role-based access control (RBAC) system
+# Practice
 
-A basic RBAC system for the Faculty Scheduling Software. This system will allow users to log in and define their roles (e.g., Regular Faculty, Temporary Faculty, Department Chair, Dean). Each role will have specific permissions for viewing and modifying schedules. The objective of this iteration is to enable the system to handle user roles and restrict actions based on their permissions.
+heledsjfsd
