@@ -2,6 +2,7 @@
 #define ROLE_H
 
 #include <iostream>
+#include <string>
 
 enum Permissions { ViewSchedule, RequestChanges, CreateSchedule, ModifySchedule, ViewAllSchedules, MakeReports };
 /* Permissions enum is meant to be used as such: permissions[ViewSchedule] == true; */
