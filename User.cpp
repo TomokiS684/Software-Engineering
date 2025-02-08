@@ -22,7 +22,6 @@ class User
         std::fstream credentials;
         std::string line;
         std::string all_credentials = username;
-        int compare_output;
         all_credentials.append(" ").append(password).append(" ").append(role.getRoleName()).append("\n");
         credentials.open("credentials.txt");
         while(getline(credentials,line))
