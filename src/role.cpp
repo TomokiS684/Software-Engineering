@@ -3,12 +3,13 @@
 
 #include <iostream>
 
+enum Permissions { ViewSchedule, RequestChanges, CreateSchedule, ModifySchedule, ViewAllSchedules, MakeReports };
+/* Permissions enum is meant to be used as such: permissions[ViewSchedule] == true; */
+
 class Role
 {
-    enum class Roles { RegFaculty, TempFaculty, Chair, Dean };
-    /* Permissions enum is meant to be used as such: permissions[ViewSchedule] == true; */
-    enum class Permissions : bool { ViewSchedule, RequestChanges, CreateSchedule, ModifySchedule, ViewAllSchedules, MakeReports };
-    Permissions permissions[6]; /* list of permissions */
+    enum Roles { RegFaculty, TempFaculty, Chair, Dean };
+    bool permissions[6]; /* list of permissions */
     Roles role;
 public:
     Role(std::string newRole);
@@ -19,27 +20,32 @@ public:
 
 Role::Role(std::string newRole)
 {
+    for (int i = 0; i < 6; i++)
+        permissions[i] = false; /* initialize permissions to false, set them to true in updateRole() */
+    
     updateRole(newRole);
 }
 
 void Role::updateRole(std::string newRole)
 {
-    /* ViewSchedule, RequestChanges, CreateSchedule, ModifySchedule, ViewAllSchedules, MakeReports */
     if (newRole == "RegFaculty") {
         role = RegFaculty;
-        permissions = [ true, true, false, false, false, false ];
+        permissions[ViewSchedule] = true;
+        permissions[RequestChanges] = true;
     }
     else if (newRole == "TempFaculty") {
         role = TempFaculty;
-        permissions = [ true, false, false, false, false, false ];
+        permissions[ViewSchedule] = true;
     }
     else if (newRole == "Chair") {
         role = Chair;
-        permissions = [ false, false, true, true, false, false ];
+        permissions[CreateSchedule] = true;
+        permissions[ModifySchedule] = true;
     }
     else if (newRole == "Dean") {
         role = Dean;
-        permissions = [ false, false, false, false, true, true ];
+        permissions[ViewAllSchedules] = true;
+        permissions[MakeReports] = true;
     }
 }
 
