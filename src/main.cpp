@@ -1,6 +1,11 @@
 #include <iostream>
 
-int main()
+bool checkPermission(int, role);
+
+bool checkPermission(int choice, User user)
 {
-    std::cout << "Hello World." << std::endl;
+	return(perms[choice]);
+
 }
+
+
