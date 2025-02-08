@@ -27,9 +27,9 @@ class User
         credentials.open("credentials.txt");
         while(getline(credentials,line))
         {
-           if (all_credentials.compare(line)==0) break;
+           if (all_credentials == line) break;
         }
-        return !(all_credentials.compare(line));
+        return (all_credentials == line);
     }
     std::string getRole() const
     {
