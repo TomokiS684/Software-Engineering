@@ -9,21 +9,27 @@ class User
     std::string username;
     std::string password;
     Role role;
-    std::fstream credentials;
     public:
     User(std::string name, std::string pwd, std::string rle)
     {
-        credentials.open("credentials.txt");
-        credentials << name << " " << pwd << " " << rle << std::endl;
-        credentials.close();
         username = name;
         password = pwd;
-        Role newRole(rle);
-        role = newRole;
+        role = rle;
+        
     }
-    bool login(std::string givenname, std::string givenpassword) const
+    bool login() const
     {   
-        return !(username.compare(givenname)&&password.compare(givenpassword));
+        std::fstream credentials;
+        std::string line;
+        std::string all_credentials = username;
+        int compare_output;
+        all_credentials.append(" ").append(password).append(" ").append(role.getRoleName()).append("\n");
+        credentials.open("credentials.txt");
+        while(getline(credentials,line))
+        {
+           if (all_credentials.compare(line)==0) break;
+        }
+        return !(all_credentials.compare(line));
     }
     std::string getRole() const
     {
