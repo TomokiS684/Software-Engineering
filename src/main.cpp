@@ -43,14 +43,19 @@ int main()
 					break;
 				case 2:
 					cout << "Requesting Changes..." << endl;
+					break;
 				case 3:
 					cout << "Creating Schedule" << endl;
+					break;
 				case 4:
 					cout << "Modifying Schedule" << endl;
+					break;
 				case 5:
 					cout << "Viewing all Schedules..." << endl;
+					break;
 				case 6:
 					cout << "Making Reports" << endl;
+					break;
 				}
 				cout << "You do not have permission to do that!" << endl;
 			}
