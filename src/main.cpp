@@ -6,7 +6,7 @@
 bool checkPermission(int, bool*); //prototype
 
 //changed this to use getPermission() from role to receive the user permissions
-bool checkPermission(int index, bool* permission)
+bool checkPermission(int choice, bool* permission)
 {
 	return(permission[choice]);
 }
@@ -33,7 +33,7 @@ int main()
 			cin >> choice;
 			if (choice == 7) //if logging out
 				break;
-			else if (0 < choice < 7 && checkPermission(choice--, user.getPermissions())) //gets perms using getPermissions()
+			else if (0 < choice < 7 && checkPermission(choice-1, user.getPermissions())) //gets perms using getPermissions()
 			{
 				switch (choice) 
 				{
