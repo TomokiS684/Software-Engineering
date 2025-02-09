@@ -33,7 +33,7 @@ int main()
 			cin >> choice;
 			if (choice == 7) //if logging out
 				break;
-			else if (0 < choice < 7 && checkPermission(choice, user.getPermissions())) //gets perms using getPermissions()
+			else if (0 < choice < 7 && checkPermission(choice--, user.getPermissions())) //gets perms using getPermissions()
 			{
 				switch (choice) 
 				{
