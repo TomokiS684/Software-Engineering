@@ -30,7 +30,7 @@ int main()
 
 		while (choice != 7) //continues loop until logged out
 		{
-			cout << "1) View Schedule\n2) Request Changes\n3) Create Schedule\n4)Modify Schedule\n5)View All Schedules\n6)Make Reports\n7)Log out" << endl;
+			cout << "\n1) View Schedule\n2) Request Changes\n3) Create Schedule\n4)Modify Schedule\n5)View All Schedules\n6)Make Reports\n7)Log out" << endl;
 			cin >> choice;
 			if (choice == 7) //if logging out
 				break;
