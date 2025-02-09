@@ -3,12 +3,12 @@
 #include "role.cpp"
 #include "User.cpp"
 
-bool checkPermission(int, User); //prototype
+bool checkPermission(int, bool*); //prototype
 
-bool checkPermission(int index, User user)
+//changed this to use getPermission() from role to receive the user permissions
+bool checkPermission(int index, bool* permission)
 {
-	return(user.role->perms[choice]);
-
+	return(permission[choice]);
 }
 
 
@@ -27,14 +27,13 @@ int main()
 	if (user.login())  //checking if input is valid
 	{
 		int choice = 0;
-
 		while (choice != 7) //continues loop until logged out
 		{
 			cout << "\n1) View Schedule\n2) Request Changes\n3) Create Schedule\n4)Modify Schedule\n5)View All Schedules\n6)Make Reports\n7)Log out" << endl;
 			cin >> choice;
 			if (choice == 7) //if logging out
 				break;
-			else if (0 < choice < 7 && checkPermission(choice, user)) //if choosing input and input is valid
+			else if (0 < choice < 7 && checkPermission(choice, user.getPermissions())) //gets perms using getPermissions()
 			{
 				switch (choice) 
 				{
