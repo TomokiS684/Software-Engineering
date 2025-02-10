@@ -10,14 +10,19 @@ class User
     std::string password;
     Role role;
     public:
-    User(std::string name, std::string pwd, std::string rle)
+    User(std::string name, std::string pwd, std::string rle);
+    bool login() const;
+    bool* getPermission() const;
+    std::string getRole() const;
+};
+User::User(std::string name, std::string pwd, std::string rle)
     {
         username = name;
         password = pwd;
         role = rle;
         
     }
-    bool login() const
+    bool User::login() const
     {   
         std::fstream credentials;
         std::string line;
@@ -30,8 +35,11 @@ class User
         }
         return (all_credentials == line);
     }
-    std::string getRole() const
+    bool* User::getPermission() const
+    { 
+        return role.getPermissions();
+    }
+    std::string User::getRole() const
     {
         return role.getRoleName();
     }
-};
