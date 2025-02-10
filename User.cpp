@@ -12,7 +12,7 @@ class User
     public:
     User(std::string name, std::string pwd, std::string rle);
     bool login() const;
-    bool* getPermission() const;
+    bool* getPermissions() const;
     std::string getRole() const;
 };
 User::User(std::string name, std::string pwd, std::string rle)
@@ -35,7 +35,7 @@ bool User::login() const
     }
     return (all_credentials == line);
 }
-bool* User::getPermission() const
+bool* User::getPermissions() const
 { 
     return role.getPermissions();
 }
